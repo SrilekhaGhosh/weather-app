@@ -1,7 +1,7 @@
 
 const output = document.querySelector("#output");
 const input = document.querySelector("input");
-const addBtn = document.querySelector(".btn");
+// const addBtn = document.querySelector(".btn");
 
 
 
@@ -17,8 +17,11 @@ const apiCall = async () => {
     const result = await data.json();
     console.log(result);
     if(result.error){
-        alert("please enter a valid city name")
+       
+       output.innerHTML="no location found"
     }
+     
+  
 
     // output.innerHTML=result.current.temp_c
     //  output.innerHTML+=result.current.feelslike_c 
@@ -26,13 +29,20 @@ const apiCall = async () => {
     const temp = document.createElement("p")
    
     temp.className = "tempt"
-    temp.textContent = ` ${result.current.temp_c}°`
+    temp.textContent = ` ${result.current.temp_c}°  `
+
+    const name=document.createElement("p")
+    name.className="location"
+    name.textContent=` ${result.location.name}`
+
+
     const feelLike = document.createElement("p")
+
  
     feelLike.className = "feel"
     feelLike.textContent = `feels like ${result.current.feelslike_c}°`
     const div = document.createElement("div")
-    div.append(temp, feelLike)
+    div.append(name,temp, feelLike)
     const img = document.createElement("img")
    
     img.className = "logo"
@@ -81,7 +91,7 @@ const apiCall = async () => {
 
 
 // input.addEventListener("change", apiCall)
-addBtn.addEventListener("click", apiCall)
+input.addEventListener("click", apiCall)
 
 
 input.addEventListener('keyup', (e) => {

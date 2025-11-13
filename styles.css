@@ -44,7 +44,7 @@ body {
 }
 
 .box {
-    width: 400px;
+    width: 670px;
 
     padding: 100px;
     display: flex;
@@ -68,14 +68,18 @@ body {
     color: beige;
     font-size: 22px;
 }
-
+/* 
 .input-grp {
     display: flex;
     gap: 5px;
    
-}
+} */
 
 .icon {
     font-size: 42px;
     color: aquamarine;
+}
+.location{
+     color: beige;
+    font-size: 22px;
 }
